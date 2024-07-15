@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         title: Text('Movie Bucket'),
         actions: [
           Padding(
@@ -29,6 +30,24 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 50,),
+              Text('Company info :',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
+              SizedBox(height: 10,),
+              Text('Company : Geeksynergy Technologies Pvt Ltd',style: TextStyle(fontSize: 13),),
+              Text('Address :  Sanjayanagar, Bengaluru-56',style: TextStyle(fontSize: 13)),
+              Text('Phone :   XXXXXXXXX09',style: TextStyle(fontSize: 13)),
+              Text('Email :    XXXXXX@gmail.com',style: TextStyle(fontSize: 13)),
+
+            ],
+          ),
+        ),
       ),
       body: FutureBuilder(
         future: ApiService().fetchMovies(),
