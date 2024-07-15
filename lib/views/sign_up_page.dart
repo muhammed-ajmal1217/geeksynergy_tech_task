@@ -71,15 +71,13 @@ class SignUpPage extends StatelessWidget {
         await prefs.setString('name', nameController.text);
         await prefs.setString('email', emailController.text);
         await prefs.setString('password', passwordController.text);
-        String? name = prefs.getString('name');
-        String? email = prefs.getString('email');
-        String? password = prefs.getString('password');
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('Signed up successfully!'),
         ));
-        print('Name: $name');
-        print('Email: $email');
-        print('Password: $password');
+        nameController.clear();
+        emailController.clear();
+        passwordController.clear();
+        confirmController.clear();
       }
     } catch (error) {
       print('Error: $error');

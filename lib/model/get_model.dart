@@ -9,7 +9,7 @@ class GetModel {
   final String language;
   final int runTime;
   final List<String> genre;
-  final List<Map<String, List<String>>> voted;
+  final List<Map<String, dynamic>> voted;
   final String poster;
   final int pageViews;
   final String description;
@@ -41,24 +41,24 @@ class GetModel {
 
   factory GetModel.fromJson(Map<String, dynamic> json) {
     return GetModel(
-      id: json['_id'],
-      director: List<String>.from(json['director']),
-      writers: List<String>.from(json['writers']),
-      stars: List<String>.from(json['stars']),
-      releasedDate: json['releasedDate'],
-      productionCompany: List<String>.from(json['productionCompany']),
-      title: json['title'],
-      language: json['language'],
-      runTime: json['runTime'],
-      genre: List<String>.from(json['genre'].split(',')),
-      voted: List<Map<String, List<String>>>.from(json['voted']),
-      poster: json['poster'],
-      pageViews: json['pageViews'],
-      description: json['description'],
-      upVoted: List<String>.from(json['upVoted']),
-      downVoted: List<String>.from(json['downVoted']),
-      totalVoted: json['totalVoted'],
-      voting: json['voting'],
+      id: json['_id'] ?? '',
+      director: List<String>.from(json['director'] ?? []),
+      writers: List<String>.from(json['writers'] ?? []),
+      stars: List<String>.from(json['stars'] ?? []),
+      releasedDate: json['releasedDate'] ?? 0,
+      productionCompany: List<String>.from(json['productionCompany'] ?? []),
+      title: json['title'] ?? '',
+      language: json['language'] ?? '',
+      runTime: json['runTime'] ?? 0,
+      genre: List<String>.from(json['genre']?.split(',') ?? []),
+      voted: List<Map<String, dynamic>>.from(json['voted'] ?? []),
+      poster: json['poster'] ?? '',
+      pageViews: json['pageViews'] ?? 0,
+      description: json['description'] ?? '',
+      upVoted: List<String>.from(json['upVoted'] ?? []),
+      downVoted: List<String>.from(json['downVoted'] ?? []),
+      totalVoted: json['totalVoted'] ?? 0,
+      voting: json['voting'] ?? 0,
     );
   }
 }
